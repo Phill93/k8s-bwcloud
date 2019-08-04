@@ -8,7 +8,7 @@ data "openstack_compute_flavor_v2" "master" {
 
 data "openstack_compute_flavor_v2" "node" {
     vcpus = 2
-    ram = 4096
+    ram = 2048
 }
 
 data "openstack_images_image_v2" "master" {
