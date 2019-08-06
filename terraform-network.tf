@@ -107,3 +107,20 @@ resource "openstack_networking_secgroup_rule_v2" "sec_nodes_rule_5" {
   security_group_id = "${openstack_networking_secgroup_v2.sec_node.id}"
   description       = "CNI Weave Data Ports"
 }
+
+resource "openstack_networking_secgroup_v2" "sec_etcd" {
+  name        = "Etcd"
+  description = "Security Group for etcd nodes"
+  delete_default_rules = true
+}
+
+resource "openstack_networking_secgroup_rule_v2" "sec_etcd_rule_1" {
+  direction         = "ingress"
+  ethertype         = "IPv4"
+  protocol          = "tcp"
+  port_range_min    = 2379
+  port_range_max    = 2380
+  remote_ip_prefix  = "${openstack_networking_subnet_v2.k8s-cluster.cidr}"
+  security_group_id = "${openstack_networking_secgroup_v2.sec_etcd.id}"
+  description       = "etcd cluster port"
+}

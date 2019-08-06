@@ -7,7 +7,8 @@ resource "openstack_compute_instance_v2" "master" {
         "${openstack_networking_secgroup_v2.sec_egress.name}",
         "${openstack_networking_secgroup_v2.sec_ssh.name}",
         "${openstack_networking_secgroup_v2.sec_master.name}",
-        "${openstack_networking_secgroup_v2.sec_node.name}"
+        "${openstack_networking_secgroup_v2.sec_node.name}",
+        "${openstack_networking_secgroup_v2.sec_etcd.name}"
         ]
     count = 3
     depends_on = [openstack_networking_subnet_v2.k8s-cluster]
