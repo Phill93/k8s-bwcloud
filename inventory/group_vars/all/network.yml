@@ -1,0 +1,2 @@
+ip: "{{ ansible_ens4.ipv4.address }}"
+kube_override_hostname: "{{ ansible_hostname }}"
