@@ -7,7 +7,7 @@ data "openstack_compute_flavor_v2" "master" {
 }
 
 data "openstack_compute_flavor_v2" "node" {
-    vcpus = 2
+    vcpus = 1
     ram = 2048
 }
 
