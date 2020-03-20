@@ -11,12 +11,22 @@ data "openstack_compute_flavor_v2" "node" {
     ram = 2048
 }
 
+data "openstack_compute_flavor_v2" "ingress" {
+    vcpus = 1
+    ram = 2048
+}
+
 data "openstack_images_image_v2" "master" {
   name = "Ubuntu 18.04"
   most_recent = true
 }
 
 data "openstack_images_image_v2" "node" {
+  name = "Ubuntu 18.04"
+  most_recent = true
+}
+
+data "openstack_images_image_v2" "ingress" {
   name = "Ubuntu 18.04"
   most_recent = true
 }
